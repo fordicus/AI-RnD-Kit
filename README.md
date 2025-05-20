@@ -6,13 +6,11 @@ This repository provides utilities and rules for working collaboratively with AI
 
 ### 📐 Ruleset Overview
 
-We apply a unified ruleset (`RULESET.md`) for programming and documentation,  
-which is updated and expanded as needed.  
-These rules ensure consistency when collaborating with AI agents or humans.
+We apply a unified ruleset (`RULESET.md`) for programming and documentation, which is updated and expanded as needed. These rules ensure consistency when collaborating with AI agents or humans.
 
 ### 🗂️ fs_to_html.py
 
-A utility to convert the current project directory structure into an interactive HTML file (`REPO_STRUCT.html`), respecting `.gitignore`-style rules.
+A utility to convert the current project directory structure into an interactive HTML file (`REPO_STRUCT.html`), respecting `.gitignore`-style rules specified in `fs_to_html.ignore`.
 
 **How to run:**
 
