@@ -49,6 +49,13 @@ Each module docstring must include the following sections in this order:
 * Maintain clear visual alignment inside each section.
 * Use tabs instead of spaces for indentation (in both docstrings and code examples).
 
+### 4.1 Avoid Markdown Syntax Inside Python Strings
+
+* Avoid using `**bold**`, `_italic_`, or backtick-enclosed `inline code` inside Python docstrings unless absolutely necessary.
+* If emphasis is required, use plain text alternatives such as:
+
+  * `"NOTE:"`, `"IMPORTANT:"`, or all caps keywords.
+
 ### 5. **Example**
 
 ```python
