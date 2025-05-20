@@ -28,6 +28,7 @@ Use a raw triple-quoted string:
 ```python
 r""" ... """
 ```
+followed by a blank line before starting the script.
 
 This preserves formatting such as tabs and backslashes.
 
