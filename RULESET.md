@@ -10,7 +10,11 @@ even if a previously known file with the same name exists in memory.
 This is critical to avoid misinterpretation when file contents have changed
 but the filename remains the same.
 
+---
 
+## ✅ Generic Principle for Scripting and Programming
+
+* `Care Human Readability` — avoid lengthy lines (beyond 80 characters per line), complicated structure, and lack of friendly comments.
 
 ---
 
@@ -28,37 +32,7 @@ Use a raw triple-quoted string:
 ```python
 r""" ... """
 ```
-followed by a blank line before starting the script.
-
-This preserves formatting such as tabs and backslashes.
-
-### 2. **Visual Divider**
-
-Surround the docstring content with **exactly 80 dots (`.`)** on top and bottom, and between sections, to provide clear visual boundaries.
-
-### 3. **Mandatory Sections**
-
-Each module docstring must include the following sections in this order:
-
-* `How to Use` — shows a basic CLI usage example.
-* `Dependency` — lists exact `pip install` command(s) with version.
-  (Use tabs for shell command indentation.)
-
-### 4. **Style and Alignment**
-
-* Section titles must be **capitalized** and followed by a blank line.
-* Maintain clear visual alignment inside each section.
-* Use tabs instead of spaces for indentation (in both docstrings and code examples).
-
-### 4.1 Avoid Markdown Syntax Inside Python Strings
-
-* Avoid using `**bold**`, `_italic_`, or backtick-enclosed `inline code` inside Python docstrings unless absolutely necessary.
-* If emphasis is required, use plain text alternatives such as:
-
-  * `"NOTE:"`, `"IMPORTANT:"`, or all caps keywords.
-
-### 5. **Example**
-
+followed by a blank line before starting the script, which preserves formatting such as tabs and backslashes. An example structure of the docstring reads:
 ```python
 r"""................................................................................
 
@@ -75,7 +49,34 @@ Dependency:
 ................................................................................"""
 ```
 
-### 6. **Inline Commenting Rules**
+### 2. **Visual Divider**
+
+Surround the docstring content with **exactly 80 dots (`.`)** on top and bottom, and between sections, to provide clear visual boundaries.
+
+### 3. **Mandatory Sections**
+
+Each module docstring must include the following sections in this order:
+
+* `How to Use` — shows a basic CLI usage example.
+* `Dependency` — lists exact `pip install` command(s) with version.
+  (Use tabs for shell command indentation.)
+* `Functionality` — Provide a succicnt but comprehensive and intuitive summary on what is being done within the code or script.
+* `IO Structure` — Provide a succinct explanation on the IO structure as necessary.
+
+### 4. **Style and Alignment**
+
+* Section titles must be **capitalized** and followed by a blank line.
+* Maintain clear visual alignment inside each section.
+* Use tabs instead of spaces for indentation (in both docstrings and code examples).
+
+### 4.1 Avoid Markdown Syntax Inside Python Strings
+
+* Avoid using `**bold**`, `_italic_`, or backtick-enclosed `inline code` inside Python docstrings unless absolutely necessary.
+* If emphasis is required, use plain text alternatives such as:
+
+  * `"NOTE:"`, `"IMPORTANT:"`, or all caps keywords.
+
+### 5. **Inline Commenting Rules**
 
 The following rules govern inline comments in all scripts:
 
@@ -85,7 +86,7 @@ The following rules govern inline comments in all scripts:
 * For multi-line logic, precede the code with a **block comment** (with blank lines before and after).
 * Use tab indentation for comment alignment, and limit lines to **≤ 80 characters**.
 
-### 7. **Scope of Modification**
+### 6. **Scope of Modification**
 
 When enriching a script with docstrings or comments:
 
@@ -95,7 +96,7 @@ When enriching a script with docstrings or comments:
 
 This ensures that annotations are safe and audit-proof.
 
-### 8. **Purpose**
+### 7. **Purpose**
 
 This combined rule helps ensure that all scripts:
 
