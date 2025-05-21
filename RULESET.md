@@ -15,6 +15,7 @@
 | G-4 | **Keep history traceable** — never alter program logic while reformatting; use comments and git commits to record intent. |
 | G-5 | **Output in the Chatting Session** — Do not prefer Canvas or a file output unless explicitly specified: directly answer in the chatting dialogue.       |
 | G-6 | **Latest upload wins** — if a file with the same name re-appears, treat the newest content as authoritative.              |
+| G-7 | **DO NOT DELETE** — if `DO NOT DELETE` or a similar phrase is encountered within a code or script, do not mistakenly delete the relevant code snippet.              |
 
 ---
 
