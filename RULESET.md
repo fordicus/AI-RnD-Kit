@@ -148,6 +148,41 @@ Think of it as a persistent onboarding layer for both your teammates and your fu
 
 ---
 
+### ✅ Recommended Table Template (Minimal, Beautiful, Aligned)
+
+```latex
+\usepackage{tabularx, booktabs}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+% tabularx spans \textwidth, and L{6.4cm}/L{5.2cm} balance
+% content beautifully
+\begin{table}[h]
+\centering
+\begin{tabularx}{\textwidth}{@{}lL{6.4cm}L{5.2cm}@{}}
+\toprule
+\textbf{Symbol} & \textbf{Meaning} & \textbf{Type} \\
+\midrule
+$p_t$ & Log return at time $t$ &
+Input series \\
+
+$\Delta p_t$ & First-order difference  
+($p_t - p_{t-1}$) &
+Computable \\
+
+$\gamma$ & Coefficient for trend reversion  
+used in ADF regression &
+To be fitted \\
+
+$p$-value & Result of $t$-test on $\gamma$  
+testing for unit root &
+Output metric \\
+\bottomrule
+\end{tabularx}
+\caption{Stationarity test variables and their roles}
+\end{table}
+```
+
+---
+
 ## 6  File-Specific Precedence   📁
 
 > *Always honor the most recently uploaded file of any given name.*
