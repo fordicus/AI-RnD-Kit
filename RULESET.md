@@ -1,4 +1,4 @@
-### RULESET.md — Unified Guidelines (2025-05-23)
+### RULESET.md — Unified Guidelines (2025-06-08)
 
 > **Purpose**  
 > This file serves as a unified and authoritative guideline for code, documents,  
@@ -137,47 +137,64 @@ Think of it as a persistent onboarding layer for both your teammates and your fu
 
 ## 5  LaTeX Tables   📊
 
-| Rule | Description                                                                    |
-| ---- | ------------------------------------------------------------------------------ |
-| L-1  | **No vertical lines** — use spacing and `booktabs` instead.                    |
-| L-2  | **Full width** — all tables should span `\textwidth`.                          |
-| L-3  | Use `tabularx`, `array`, or `booktabs` to automatically manage column spacing. |
-| L-4  | **Caption on top**, followed by `\vspace{0.5em}` before the table body begins. |
-| L-5  | Only use `\toprule`, `\midrule`, and `\bottomrule` for horizontal lines.       |
-| L-6  | Use `@{}` in column templates to remove outer padding (e.g., `@{} l X @{}`).   |
+| Rule | Description                                                                                                                                                                                     |
+| ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| L-1  | **No vertical lines** — use spacing and `booktabs` instead.                                                                                                                                         |
+| L-2  | **Full width** — all tables should span `\textwidth`.                                                                                                                                               |
+| L-3  | Use `tabularx` and `booktabs` to manage column spacing and table layout.                                                                                                                        |
+| L-4  | For controlling text alignment inside table cells (e.g., full justification), use `ragged2e` and define an appropriate column type (e.g., `J{}` with `\justifying`). Example usage shown below. |
+| L-5  | **Caption on top**, followed by `\vspace{0.5em}` before the table body begins. Use Title Case for table captions: capitalize the first letter of major words.                                       |
+| L-6  | Only use `\toprule`, `\midrule`, and `\bottomrule` for horizontal lines.                                                                                                                        |
+| L-7  | Use `@{}` in column templates to remove outer padding (e.g., `@{} l X @{}`).                                                                                                                    |
+
 
 ---
 
-### ✅ Recommended Table Template (Minimal, Beautiful, Aligned)
+### ✅ Example for Full-Justified Column (J{}) Template
 
 ```latex
-\usepackage{tabularx, booktabs}
+%---------------------------------------------------------------
+% table
+%...............................................................
+\usepackage{tabularx, booktabs, ragged2e}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
-% tabularx spans \textwidth, and L{6.4cm}/L{5.2cm} balance
-% content beautifully
+\newcolumntype{J}[1]{>{\noindent\justifying\arraybackslash}p{#1}}
+%...............................................................
+% tabularx spans \textwidth, and
+% J{6.4cm}/J{6.4cm} ensures full-justified columns for long text blocks
+%...............................................................
 \begin{table}[h]
 \centering
-\begin{tabularx}{\textwidth}{@{}lL{6.4cm}L{5.2cm}@{}}
+\begin{tabularx}{\textwidth}{@{}lJ{6.4cm}J{6.4cm}@{}}
 \toprule
-\textbf{Symbol} & \textbf{Meaning} & \textbf{Type} \\
+\textbf{Approach} & \textbf{Advantage} & \textbf{Limitation} \\
 \midrule
-$p_t$ & Log return at time $t$ &
-Input series \\
 
-$\Delta p_t$ & First-order difference  
-($p_t - p_{t-1}$) &
-Computable \\
+Classification & 
+Reduces the dimensionality of the prediction output.  
+Offers high parameter and sample efficiency;  
+may achieve a relatively better accuracy with fewer parameters even under limited data.
 
-$\gamma$ & Coefficient for trend reversion  
-used in ADF regression &
-To be fitted \\
+& 
+Temporal sparsity occurs as intermediate price actions not included in the predefined $\tau$ set are lost.  
+Even with accurate predictions, fine-grained signals for entry/exit timing may be lacking for trading decisions.
 
-$p$-value & Result of $t$-test on $\gamma$  
-testing for unit root &
-Output metric \\
+\\
+
+Vector Generation & 
+Provides a sequence of returns at uniformly spaced future time points.  
+Useful not only for trading decisions, but also for risk assessment, position sizing,  
+and trajectory-based strategy design.
+
+& 
+As the prediction horizon length increases, sample efficiency degrades and solvability requires more model parameters and larger datasets.  
+This creates a trade-off with the advantages of the classification approach.
+
+\\
+
 \bottomrule
 \end{tabularx}
-\caption{Stationarity test variables and their roles}
+\caption{Advantages and limitations of classification and vector generation approaches}
 \end{table}
 ```
 
@@ -191,4 +208,4 @@ Output metric \\
 
 ---
 
-### End of RULESET.md (2025-05-23)
+### End of RULESET.md (2025-06-08)
